@@ -13,5 +13,5 @@ script:
 
 after_script:
  - 'if [ ${TRAVIS_SECURE_ENV_VARS} = "true" && [ -n "$TRAVIS_TAG" ] ]; then
-      electron-forge publish
+      electron-forge publish;
     fi'
