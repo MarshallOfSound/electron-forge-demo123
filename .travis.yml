@@ -5,13 +5,13 @@ os:
 - linux
 - osx
 
-pre_script:
+before_script:
   - npm install -g electron-forge
 
 script:
  - npm run test
 
-post_script:
+after_script:
  - 'if [ ${TRAVIS_SECURE_ENV_VARS} = "true" && [ -n "$TRAVIS_TAG" ] ]; then
       electron-forge publish
     fi'
