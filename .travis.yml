@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "6"
+os:
+- linux
+- osx
+
+pre_script:
+  - npm install -g electron-forge
+
+script:
+ - npm run test
+
+post_script:
+ - 'if [ ${TRAVIS_SECURE_ENV_VARS} = "true" && [ -n "$TRAVIS_TAG" ] ]; then
+      electron-forge publish
+    fi'
