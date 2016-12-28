@@ -1,0 +1,53 @@
+{
+    "name": "demo123",
+    "productName": "demo123",
+    "version": "1.0.0",
+    "description": "My Electron application description",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "electron-forge start",
+        "lint": "eslint src"
+    },
+    "keywords": [],
+    "author": "samuel",
+    "license": "MIT",
+    "config": {
+        "forge": {
+            "make_targets": {
+                "win32": [
+                    "squirrel"
+                ],
+                "darwin": [
+                    "dmg",
+		    "zip"
+                ],
+                "linux": [
+                    "deb",
+                    "rpm"
+                ]
+            },
+            "electronPackagerConfig": {},
+            "electronWinstallerConfig": {
+                "name": "demo123"
+            },
+            "electronInstallerDebian": {},
+            "electronInstallerRedhat": {},
+            "github_repository": {
+                "owner": "MarshallOfSound",
+                "name": "electron-forge-demo123"
+            }
+        }
+    },
+    "dependencies": {
+        "electron-compile": "^5.1.0"
+    },
+    "devDependencies": {
+        "babel-preset-stage-0": "^6.16.0",
+        "electron-prebuilt-compile": "1.4.12",
+        "eslint": "^3.12.2",
+        "eslint-config-airbnb": "^13.0.0",
+        "eslint-plugin-import": "^2.2.0",
+        "eslint-plugin-jsx-a11y": "^2.2.3",
+        "eslint-plugin-react": "^6.8.0"
+    }
+}
