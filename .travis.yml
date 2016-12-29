@@ -12,6 +12,4 @@ script:
  - npm run test
 
 after_script:
- - 'if [ ${TRAVIS_SECURE_ENV_VARS} = "true" && ${TRAVIS_TAG} ]; then
-      electron-forge publish;
-    fi'
+ - if [ ${TRAVIS_TAG} ]; then electron-forge publish; fi
