@@ -29,4 +29,5 @@ build_script:
 - npm install
 - npm link
 - cd ../..
+- echo %APPVEYOR_REPO_TAG%
 - If %APPVEYOR_REPO_TAG% == "true" electron-forge publish
