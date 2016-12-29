@@ -5,11 +5,11 @@ os:
 - linux
 - osx
 
-before_script:
-  - npm install -g electron-forge
+# before_script:
+  # - npm install -g electron-forge
 
 script:
  - npm run test
 
 after_script:
- - if [ ${TRAVIS_TAG} ]; then electron-forge publish; fi
+ - ./publish.sh
