@@ -3,7 +3,8 @@ if [ ${TRAVIS_TAG} ]; then
   cd out;
   git clone https://github.com/electron-userland/electron-forge.git;
   cd electron-forge;
-  yarn;
+  git checkout publish-cmd;
+  npm install;
   npm link;
   cd ../..;
   electron-forge publish;
