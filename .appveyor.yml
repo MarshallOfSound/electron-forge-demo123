@@ -29,5 +29,8 @@ build_script:
 - npm install
 - npm link
 - cd ../..
-- echo %APPVEYOR_REPO_TAG%
-- If %APPVEYOR_REPO_TAG% == "true" electron-forge publish
+- git tag --points-at HEAD > tagFile
+- SET /p ctag= < tagFile
+- DEL tagFile
+- echo %ctag%
+- If NOT %ctag% == "" electron-forge publish
