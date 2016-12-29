@@ -32,5 +32,4 @@ build_script:
 - git tag --points-at HEAD > tagFile
 - SET /p ctag= < tagFile
 - DEL tagFile
-- echo %ctag%
 - If NOT %ctag% == "" electron-forge publish
