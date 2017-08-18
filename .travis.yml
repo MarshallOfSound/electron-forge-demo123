@@ -7,11 +7,20 @@ dist: trusty
 osx_image: xcode8.3
 sudo: false
 
+cache:
+  directories:
+  - node_modules
+  - $HOME/.cache/electron
+
 addons:
   apt:
     packages:
     - fakeroot
     - rpm
+
+install:
+- npm install
+- npm update
 
 script:
 - npm run lint
