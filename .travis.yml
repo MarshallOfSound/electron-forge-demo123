@@ -1,18 +1,17 @@
 language: node_js
-node_js:
-  - "6"
+node_js: "6"
 os:
 - linux
 - osx
 dist: trusty
-sudo: required
+osx_image: xcode8.3
+sudo: false
 
-before_script:
-  - if [[ "$TRAVIS_OS_NAME" = "linux" ]]; then sudo apt-get install rpm; fi
-  # - npm install -g electron-forge
-
-script:
- - npm run test
+addons:
+  apt:
+    packages:
+    - fakeroot
+    - rpm
 
 after_script:
  - ./publish.sh
