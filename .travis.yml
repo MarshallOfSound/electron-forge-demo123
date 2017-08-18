@@ -13,5 +13,7 @@ addons:
     - fakeroot
     - rpm
 
-after_script:
- - ./publish.sh
+script:
+- npm run lint
+- if test -z "$TRAVIS_TAG"; then npm run make; fi
+after_success: if test -n "$TRAVIS_TAG"; then npm run publish; fi
