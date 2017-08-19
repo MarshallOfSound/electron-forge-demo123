@@ -7,29 +7,22 @@ environment:
 cache:
 - '%APPDATA%\npm-cache'
 - '%USERPROFILE%\.electron'
+- node_modules
 branches:
   only:
   - master
+  - /^v\d\.\d\.\d/
 install:
 - ps: Install-Product node $env:nodejs_version $env:platform
 - set PATH=%APPDATA%\npm;%PATH%
 - npm install
+- npm update
 
 test_script:
 - node --version
 - npm --version
-- npm test
+- npm run lint
+- if %APPVEYOR_REPO_TAG% EQU false npm run make
 
 build_script:
-- mkdir out
-- cd out
-- git clone https://github.com/electron-userland/electron-forge.git
-- cd electron-forge
-- git checkout publish-cmd
-- npm install
-- npm link
-- cd ../..
-- git tag --points-at HEAD > tagFile
-- SET /p ctag= < tagFile
-- DEL tagFile
-- If NOT %ctag% == "" electron-forge publish
+- IF %APPVEYOR_REPO_TAG% EQU true npm run publish
