@@ -1,7 +1,7 @@
 platform:
 - x64
 environment:
-  nodejs_version: "6"
+  nodejs_version: "14"
   GITHUB_TOKEN:
     secure: t1s7bP+lo6z4Gv+F0J2pvD4KY2nzgdtOtrz/eN3Q41XgoV4+GnBtuY2oHQdQJ1nH
 cache:
